@@ -9,6 +9,8 @@ Fingerprint:91488dd8
 
 ## AI-use declaration
 
+I used Claude (Anthropic) as a tutor during the exam. It explained each part of the task and the formulas from the README, and gave me short Python snippets that I ran myself in the Colab notebook on my own data (recall, MRR, Wilson intervals, costs, Part 3 calculations). I checked every output and understood how each number is computed.
+
 (About half a page: which assistants or tools you used and for what. If you used none, say so.)
 
 ## Part 1: Retrieval and cost decision
@@ -82,25 +84,32 @@ Choice: L. It costs $7,200 per year versus $33,841 for H and keeps the ИИН in
 
 ### Q1
 
-Number:
-Why (at most 40 words):
+Number: 2.70
+Why (at most 40 words): The token ratio is 3.09 but the bill ratio is 2.70. 
+
+Output tokens cost 6x more than input tokens, and Kazakh mostly blow up the cheaper input, so the bill grows less than the token count.
 
 ### Q2
 
-Number:
-Why (at most 40 words):
+Number: 533
+Why (at most 40 words): The chunk is 576 x 263/256 = 591 e5 tokens, and the sentence starts at 90%, token 533. e5 reads only 512 tokens, so the sentence is cut off and never embedded. No error is shown
+retrieval silently fails.
 
 ### Q3
 
-Number:
-Why (at most 40 words):
+Number: 52.2
+Why (at most 40 words): Probabilities are 49.1, 27.0, 18.1, 4.0, 1.8%. Top-p 0.9 keeps the first three (94.2%) and renormalises: 49.1/94.2 = 52.2%. Top-p removes tail tokens completely
+lowering temperature only sharpens probabilities but removes no token.
 
 ### Q4
 
-Number:
-Why (at most 40 words):
+Number: 24.5
+Why (at most 40 words): The bound applies only to arbitrary facts: account numbers and birthdays, (242x20 + 238x29)/480. 
+I left out multiplication and sequences because they follow learnable rules. A system prompt cannot change the bound;
+it comes from training data.
 
 ### Q5
 
-Number:
-Why (at most 40 words):
+Number: 2.30
+Why (at most 40 words): The model has 598/13 = 46 tokens per parameter, Chinchilla 20, so it is over-trained by that criterion.
+Chinchilla showed that GPT-3-style models were under-trained: too many parameters for too few tokens.
