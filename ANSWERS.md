@@ -57,12 +57,26 @@ Test A, k=3, B, k=3 and B, k=5 on a larger set, for example 100 questions per la
 
 | pipeline | overall accuracy | weakest cell (language, condition) | accuracy there | lower | upper | annual cost |
 |---|---|---|---|---|---|---|
-| H | | | | | | |
-| L | | | | | | |
+| H | 0.917 | RU, degraded | 0.867 | 0.703 | 0.947 | 33840.97 |
+| L | 0.811 | KK, clean | 0.700 | 0.521 | 0.833 | 7200.00 |
 
-Personal-data pages per year sent abroad under H:
+Personal-data pages per year sent abroad under H: 204400
 
 ### 2b. Memo (at most 300 words)
+
+To: Head of Operations. Subject: choosing the invoice pipeline.
+
+Accuracy. Overall, H reads 91.7% of invoices exactly and L 81.1%, a real gap in favour of H. But the overall figure hides the weakest group: Kazakh clean scans under L, 70.0% [52.1%, 83.3%]. The same cell under H is 90.0% [74.4%, 96.5%]. With only 30 invoices per cell these intervals overlap, so the gap is not proven, but Kazakh invoices are the group to watch. H's weakest cell is Russian degraded scans, 86.7% [70.3%, 94.7%].
+
+Personal data. 204,400 pages per year carry a person's name and ИИН, which Law No. 94-V covers.
+- Where does the scan go? H: to a data centre abroad. L: stays on our server in Kazakhstan.
+- Who stores it? H: the vendor; we do not know its sub-processors. L: we do.
+- For how long? H: unknown. A vendor's statement is not a compliance review, so we must get retention terms in a signed contract. L: we decide.
+For H we would still have to find out: the legal basis for the transfer, the retention period, and whether our data is used for training.
+
+Safeguards we can verify: for H, mask the ИИН area before upload and audit a monthly sample of sent images. For L, delete scans after 30 days with a deletion log, and review the access log monthly. For both, send low-confidence Kazakh invoices to human review and re-test on 200 invoices per cell.
+
+Choice: L. It costs $7,200 per year versus $33,841 for H and keeps the ИИН in Kazakhstan. Its overall accuracy is lower, so human review covers that gap. Remaining risk: Kazakh invoices are read worst, and we are responsible for the server's security ourselves.
 
 ## Part 3: Explain your own numbers
 
