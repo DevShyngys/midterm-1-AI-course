@@ -33,18 +33,23 @@ Fingerprint:91488dd8
 
 | candidate | annual cost |
 |---|---|
-| A, k=3 | |
-| A, k=5 | |
-| B, k=3 | |
-| B, k=5 | |
+| A, k=3 | 29102.53 |
+| A, k=5 | 38006.79 |
+| B, k=3 | 19446.65 |
+| B, k=5 | 21913.67 |
 
 ### 1d. Decision (at most 150 words)
 
-Chosen candidate:
+Chosen candidate: B, k=3
 
 (Decision, using your intervals and the budget. Give the recall of your choice for EN, RU and KK separately.)
 
+By looking to A, k=5 costs $38,007 per year, which is over the $33,600 budget. so I exclude it, among the affordable candidates, B, k=5 has the highest recall, 0.683 [0.558, 0.787]. However, its interval overlaps with A, k=3 [0.507, 0.744] and B, k=3 [0.474, 0.714], so the difference is not proven. 
+Because they are statistically tied, I choose the cheapest one, B, k=3, at $19,447 per year. Its recall by language: EN 0.60, RU 0.65, KK 0.55. Kazakh users are served worst, but with only 20 questions per language this gap is very uncertain.
+
 ### 1e. Next measurement (at most 60 words)
+
+Test A, k=3, B, k=3 and B, k=5 on a larger set, for example 100 questions per language. Narrower intervals would show whether B, k=5 is really better and whether Kazakh recall is really lower. If B, k=5 clearly wins, I would switch to it, since it is still within budget
 
 ## Part 2: A document pipeline you can defend
 
